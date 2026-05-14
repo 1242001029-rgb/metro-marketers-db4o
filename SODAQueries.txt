@@ -1,0 +1,110 @@
+SODA QUERIES - Metro Marketers Customer Marketing Database
+
+SODA QUERY 1
+Goal: Select all customers.
+Query:
+Query q1 = db.query();
+q1.constrain(Customer.class);
+q1.execute();
+Expected Result: Display all customers.
+
+SODA QUERY 2
+Goal: Search customer by name Alice Tan.
+Query:
+Query q2 = db.query();
+q2.constrain(Customer.class);
+q2.descend("name").constrain("Alice Tan");
+q2.execute();
+Expected Result: Display customer data for Alice Tan.
+
+SODA QUERY 3
+Goal: Search customers from Jakarta.
+Query:
+Query q3 = db.query();
+q3.constrain(Customer.class);
+q3.descend("city").constrain("Jakarta");
+q3.execute();
+Expected Result: Display customers whose city is Jakarta.
+
+SODA QUERY 4
+Goal: Search female customers.
+Query:
+Query q4 = db.query();
+q4.constrain(Customer.class);
+q4.descend("gender").constrain("Female");
+q4.execute();
+Expected Result: Display customers with gender Female.
+
+SODA QUERY 5
+Goal: Search customers with occupation Student.
+Query:
+Query q5 = db.query();
+q5.constrain(Customer.class);
+q5.descend("occupation").constrain("Student");
+q5.execute();
+Expected Result: Display customers whose occupation is Student.
+
+SODA QUERY 6
+Goal: Search customers not from Jakarta.
+Query:
+Query q6 = db.query();
+q6.constrain(Customer.class);
+q6.descend("city").constrain("Jakarta").not();
+q6.execute();
+Expected Result: Display customers whose city is not Jakarta.
+
+SODA QUERY 7
+Goal: Search customers with income greater than 10 million.
+Query:
+Query q7 = db.query();
+q7.constrain(Customer.class);
+q7.descend("income").constrain(10000000.0).greater();
+q7.execute();
+Expected Result: Display customers with income above 10 million.
+
+SODA QUERY 8
+Goal: Search customers with income less than 7 million.
+Query:
+Query q8 = db.query();
+q8.constrain(Customer.class);
+q8.descend("income").constrain(7000000.0).smaller();
+q8.execute();
+Expected Result: Display customers with income below 7 million.
+
+SODA QUERY 9
+Goal: Search customers from Jakarta and gender Female.
+Query:
+Query q9 = db.query();
+q9.constrain(Customer.class);
+q9.descend("city").constrain("Jakarta");
+q9.descend("gender").constrain("Female");
+q9.execute();
+Expected Result: Display female customers from Jakarta.
+
+SODA QUERY 10
+Goal: Search customers from Bekasi or Bandung.
+Query:
+Query q10 = db.query();
+q10.constrain(Customer.class);
+q10.descend("city").constrain("Bekasi")
+   .or(q10.descend("city").constrain("Bandung"));
+q10.execute();
+Expected Result: Display customers from Bekasi or Bandung.
+
+SODA QUERY 11
+Goal: Sort customers by name ascending.
+Query:
+Query q11 = db.query();
+q11.constrain(Customer.class);
+q11.descend("name").orderAscending();
+q11.execute();
+Expected Result: Display customers sorted by name in ascending order.
+
+SODA QUERY 12
+Goal: Search marketing staff with position Project Manager.
+Query:
+Query q12 = db.query();
+q12.constrain(MarketingStaff.class);
+q12.descend("position").constrain("Project Manager");
+q12.execute();
+Expected Result: Display marketing staff with Project Manager position.

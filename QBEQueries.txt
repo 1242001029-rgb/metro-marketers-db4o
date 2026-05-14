@@ -1,0 +1,73 @@
+QBE QUERIES - Metro Marketers Customer Marketing Database
+
+QBE QUERY 1
+Goal: Search customer by name Alice Tan.
+Query:
+db.queryByExample(new Customer(0, "Alice Tan", null, null, null, 0, null, null, 0));
+Expected Result: Display customer data with name Alice Tan.
+
+QBE QUERY 2
+Goal: Search customers from Jakarta.
+Query:
+db.queryByExample(new Customer(0, null, null, null, "Jakarta", 0, null, null, 0));
+Expected Result: Display customers whose city is Jakarta.
+
+QBE QUERY 3
+Goal: Search female customers.
+Query:
+db.queryByExample(new Customer(0, null, null, null, null, 0, "Female", null, 0));
+Expected Result: Display customers with gender Female.
+
+QBE QUERY 4
+Goal: Search customers with occupation Student.
+Query:
+db.queryByExample(new Customer(0, null, null, null, null, 0, null, "Student", 0));
+Expected Result: Display customers with occupation Student.
+
+QBE QUERY 5
+Goal: Search products by category Beauty.
+Query:
+db.queryByExample(new Product(0, null, "Beauty", 0, null));
+Expected Result: Display products in Beauty category.
+
+QBE QUERY 6
+Goal: Search products by brand GlowCare.
+Query:
+db.queryByExample(new Product(0, null, null, 0, "GlowCare"));
+Expected Result: Display products with brand GlowCare.
+
+QBE QUERY 7
+Goal: Search segment by segment name Young Professionals.
+Query:
+db.queryByExample(new Segment(0, "Young Professionals", null, null));
+Expected Result: Display Young Professionals segment.
+
+QBE QUERY 8
+Goal: Search segment by criteria Age 20-35.
+Query:
+db.queryByExample(new Segment(0, null, null, "Age 20-35"));
+Expected Result: Display segment with criteria Age 20-35.
+
+QBE QUERY 9
+Goal: Search campaign by status Active.
+Query:
+db.queryByExample(new Campaign(0, null, null, null, null, 0, "Active", null, null, null));
+Expected Result: Display active campaigns.
+
+QBE QUERY 10
+Goal: Search campaign by name Beauty Promo May.
+Query:
+db.queryByExample(new Campaign(0, "Beauty Promo May", null, null, null, 0, null, null, null, null));
+Expected Result: Display campaign named Beauty Promo May.
+
+QBE QUERY 11
+Goal: Search marketing staff by name Marie Weber.
+Query:
+db.queryByExample(new MarketingStaff(0, "Marie Weber", null, null, null));
+Expected Result: Display staff data for Marie Weber.
+
+QBE QUERY 12
+Goal: Search marketing staff by position Project Manager.
+Query:
+db.queryByExample(new MarketingStaff(0, null, "Project Manager", null, null));
+Expected Result: Display staff whose position is Project Manager.

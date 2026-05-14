@@ -1,0 +1,134 @@
+NATIVE QUERIES - Metro Marketers Customer Marketing Database
+
+NATIVE QUERY 1
+Goal: Select all customers.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return true;
+    }
+});
+Expected Result: Display all customer objects.
+
+NATIVE QUERY 2
+Goal: Select customers from Jakarta.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return c.toString().contains("Jakarta");
+    }
+});
+Expected Result: Display customers whose city is Jakarta.
+
+NATIVE QUERY 3
+Goal: Search customer by name Arohib Firdaus.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return c.getName().equalsIgnoreCase("Arohib Firdaus");
+    }
+});
+Expected Result: Display customer data for Arohib Firdaus.
+
+NATIVE QUERY 4
+Goal: Select customers with income above 10 million.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return c.toString().contains("1.2E7") ||
+               c.toString().contains("1.5E7") ||
+               c.toString().contains("1.8E7") ||
+               c.toString().contains("1.1E7");
+    }
+});
+Expected Result: Display customers with high income.
+
+NATIVE QUERY 5
+Goal: Search customers with occupation Student.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return c.toString().contains("Student");
+    }
+});
+Expected Result: Display customers whose occupation is Student.
+
+NATIVE QUERY 6
+Goal: Search customers from Bekasi or Bandung.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return c.toString().contains("Bekasi") ||
+               c.toString().contains("Bandung");
+    }
+});
+Expected Result: Display customers from Bekasi or Bandung.
+
+NATIVE QUERY 7
+Goal: Select all marketing staff.
+Query:
+db.query(new Predicate<MarketingStaff>() {
+    public boolean match(MarketingStaff s) {
+        return true;
+    }
+});
+Expected Result: Display all marketing staff/candidates.
+
+NATIVE QUERY 8
+Goal: Search staff with position Project Manager.
+Query:
+db.query(new Predicate<MarketingStaff>() {
+    public boolean match(MarketingStaff s) {
+        return s.toString().contains("Project Manager");
+    }
+});
+Expected Result: Display Jim Reedy as Project Manager.
+
+NATIVE QUERY 9
+Goal: Search product category Beauty.
+Query:
+db.query(new Predicate<Product>() {
+    public boolean match(Product p) {
+        return p.toString().contains("Premium Skincare");
+    }
+});
+Expected Result: Display Premium Skincare product.
+
+NATIVE QUERY 10
+Goal: Search segment Young Professionals.
+Query:
+db.query(new Predicate<Segment>() {
+    public boolean match(Segment s) {
+        return s.toString().contains("Young Professionals");
+    }
+});
+Expected Result: Display Young Professionals segment.
+
+NATIVE QUERY 11
+Goal: Sort customers by name.
+Query:
+List<Customer> sortedCustomers = new ArrayList<Customer>(
+    db.query(new Predicate<Customer>() {
+        public boolean match(Customer c) {
+            return true;
+        }
+    })
+);
+sortedCustomers.sort(new Comparator<Customer>() {
+    public int compare(Customer c1, Customer c2) {
+        return c1.getName().compareToIgnoreCase(c2.getName());
+    }
+});
+Expected Result: Display customer list sorted alphabetically by name.
+
+NATIVE QUERY 12
+Goal: Search professional customers.
+Query:
+db.query(new Predicate<Customer>() {
+    public boolean match(Customer c) {
+        return c.toString().contains("Architect") ||
+               c.toString().contains("Manager") ||
+               c.toString().contains("Entrepreneur");
+    }
+});
+Expected Result: Display customers with professional occupations such as Architect, Manager, and Entrepreneur.
